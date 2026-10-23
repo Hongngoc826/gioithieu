@@ -1,0 +1,120 @@
+/* CSS ban đầu của đề bài */
+* {
+    box-sizing: border-box;
+}
+body {
+    font-family: Arial, sans-serif;
+    background: #f5f5f5;
+    margin: 0;
+    padding: 0;
+}
+.container {
+    width: 1000px;
+    margin: 30px auto;
+}
+h1 {
+    text-align: center;
+}
+.product {
+    display: flex;
+    gap: 30px;
+    background: white;
+    padding: 30px;
+}
+.product img {
+    width: 50%;
+    height: auto;
+    object-fit: cover;
+}
+.info {
+    width: 50%;
+}
+.price {
+    color: red;
+    font-size: 28px;
+    font-weight: bold;
+}
+button {
+    background: #ee4d2d;
+    color: white;
+    border: 0;
+    padding: 15px 30px;
+    cursor: pointer;
+}
+
+/* ========================================================
+   YÊU CẦU ĐỀ BÀI:
+   1. Trên máy tính bảng: Hình ảnh và chữ nhỏ hơn
+   2. Trên điện thoại: Ẩn thông tin mô tả, ảnh và chữ nhỏ hơn
+   3. Khi in ra: Ẩn đi giá tiền
+   ======================================================== */
+
+/* 1. Kích thước Máy tính bảng (Tablet: màn hình <= 992px) */
+@media screen and (max-width: 992px) {
+    .container {
+        width: 90%;
+        margin: 20px auto;
+    }
+    h1 {
+        font-size: 22px;
+    }
+    .product {
+        padding: 20px;
+        gap: 20px;
+    }
+    .info h2 {
+        font-size: 20px;
+    }
+    .price {
+        font-size: 22px;
+    }
+    .description {
+        font-size: 14px;
+    }
+    button {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+}
+
+/* 2. Kích thước Điện thoại (Mobile: màn hình <= 576px) */
+@media screen and (max-width: 576px) {
+    .container {
+        width: 95%;
+        margin: 15px auto;
+    }
+    .product {
+        flex-direction: column; /* Đổi sang dạng 1 cột vertically */
+        align-items: center;
+        padding: 15px;
+        gap: 15px;
+    }
+    .product img, .info {
+        width: 100%;
+    }
+    h1 {
+        font-size: 18px; /* Chữ tiêu đề nhỏ hơn */
+    }
+    .info h2 {
+        font-size: 16px; /* Chữ thông tin nhỏ hơn */
+    }
+    .price {
+        font-size: 18px; /* Giá tiền nhỏ hơn */
+    }
+    /* Yêu cầu: Ẩn thông tin mô tả trên điện thoại */
+    .description {
+        display: none;
+    }
+    button {
+        width: 100%;
+        padding: 10px;
+        font-size: 13px;
+    }
+}
+
+/* 3. Khi in ra (Print Mode): Ẩn giá tiền */
+@media print {
+    .price {
+        display: none !important;
+    }
+}
